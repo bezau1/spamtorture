@@ -341,9 +341,9 @@
 
       /* NEW: POTATO BUTTON */
       case "potato":
-        setStatus("I LOVE POTATOES :3");
-        log("You pressed the POTATO button.", "player");
-        log("SPAMTON: I LOVE POTATOES :3", "neo");
+        setStatus("dead");
+        log("You brutaly murdered Spamtong", "player");
+        log("SPAMTON can't do anything because he is dead.", "neo");
         break;
 
       /* NEW: CHAIR MODE */
@@ -351,9 +351,9 @@
         if (!state.chairMode) {
           state.chairMode = true;
           neoSprite.src = "spamtonwheelchair.png";
-          setStatus("I CAN'T DO [[ANYTHING]]!!");
-          log("You activated CHAIR MODE.", "player");
-          log("SPAMTON NEO: I CAN'T DO [[ANYTHING]]!!!", "neo");
+          setStatus("I CAN'T DO [[anything]]!!!");
+          log("You broke Spamton's leg.", "player");
+          log("SPAMTON NEO: I CAN'T DO [[anything]]!!!", "neo");
         }
         break;
 
