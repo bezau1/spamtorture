@@ -443,10 +443,15 @@
           break;
 
           case "potato":
-          setStatus("dead");
-          log("You brutaly murdered Spamtong.", "player");
-          log("SPAMTON can't do anything he is dead.", "neo");
-          break;
+  // Disappear forever
+  neoSprite.style.display = "none";
+  state.chairMode = true; // prevent any sprite changes later
+
+  setStatus("...he's gone. Forever. Dead");
+  log("You brutaly murdered Spamtong.", "player");
+  log("SPAMTON can't do anything he is dead.", "neo");
+  log("SYSTEM: Spamton is gone permanently.", "system");
+  break;
 
         /* 1–32 MEDIEVAL METHODS */
 
