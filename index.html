@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Spamton NEO Medieval Torture Control</title>
+  <title>Spamton NEO Medieval Torture</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -22,7 +22,9 @@
       --border: #3a3a3a;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -50,7 +52,9 @@
     }
 
     @media (max-width: 900px) {
-      .frame { grid-template-columns: 1fr; }
+      .frame {
+        grid-template-columns: 1fr;
+      }
     }
 
     h1 {
@@ -108,7 +112,9 @@
       font-size: 0.8rem;
     }
 
-    .bar-label { width: 80px; }
+    .bar-label {
+      width: 80px;
+    }
 
     .bar {
       flex: 1;
@@ -208,19 +214,32 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
       cursor: pointer;
-      transition: transform 0.08s;
+      transition: transform 0.08s, box-shadow 0.08s, border-color 0.08s, background 0.08s;
       white-space: normal;
+      text-align: center;
     }
 
     button:hover {
       transform: translateY(-2px);
+      box-shadow: 0 0 8px var(--accent);
       border-color: var(--accent);
       background: #151515;
     }
 
     button:active {
       transform: translateY(1px);
+      box-shadow: none;
       background: #000;
+    }
+
+    .danger-btn {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .danger-btn:hover {
+      box-shadow: 0 0 10px var(--danger);
+      background: #180000;
     }
 
     .log-window {
@@ -240,7 +259,7 @@
     }
 
     .log-line.player { color: var(--accent); }
-    .log-line.neo { color: var(--accent2); }
+    .log-line.neo    { color: var(--accent2); }
     .log-line.system { color: #aaa; }
 
     .corner-label {
@@ -252,18 +271,16 @@
     }
   </style>
 </head>
-
 <body>
   <div class="frame">
-    <!-- LEFT -->
+    <!-- LEFT: STAGE -->
     <div class="left">
       <h1>SPAMTON NEO MEDIEVAL TORTURE</h1>
-      <div class="subtitle">Non-lethal. 32 Methods + Chair Mode + Potato Mode.</div>
+      <div class="subtitle">Lethal.</div>
 
       <div class="neo-stage">
         <div class="neo-name">[[HYPERLINK BLOCKED]] NEO</div>
 
-        <!-- HEALTH BARS -->
         <div class="neo-healthbars">
           <div class="bar-row">
             <div class="bar-label">EGO</div>
@@ -279,97 +296,450 @@
           </div>
         </div>
 
-        <!-- SPAMTON SPRITE -->
         <div class="neo-sprite-wrap">
-          <img src="spamton_neo.png" id="neoSprite" class="neo-sprite">
+          <!-- MAIN SPRITE = spamton.png -->
+          <img src="spamton.png" alt="Spamton" class="neo-sprite" id="neoSprite">
         </div>
 
         <div class="neo-status" id="neoStatus">
           [[KID... WHAT KIND OF MEDIEVAL OPERATION IS THIS?!]]
         </div>
+
+        <div class="corner-label">No Spamtong's were left alive</div>
       </div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT: CONTROL CONSOLE -->
     <div class="right">
       <div class="panel-title">MEDIEVAL TORTURE CONTROL CONSOLE</div>
 
       <div class="button-grid">
+        <!-- EXTRA FUN BUTTONS -->
+        <button data-action="chairMode">Break leg</button>
+        <button data-action="potato">Kill</button>
 
-        <!-- YOUR 32 TORTURES (UNCHANGED) -->
-        <!-- ALL your buttons from previous version stay here -->
-        <!-- not repeating due to length -->
-
-        <!-- NEW BUTTONS -->
-        <button data-action="potato">🥔 POTATO</button>
-        <button data-action="chairMode">🦽 CHAIR MODE</button>
-
+        <!-- 1–32 TORTURE METHODS -->
+        <button data-action="discountWheel">⚙️ Discount Rack Stretching Wheel</button>
+        <button data-action="onionTruth">🧅 Onion of Truth</button>
+        <button data-action="kromerBath">🛁 Kromer Bath</button>
+        <button data-action="ironMaidenPopups">🚪 Iron Maiden of Blocked Pop-ups</button>
+        <button data-action="saltDeal">🧂 Salt the Deal</button>
+        <button data-action="publicReviews">📉 Stocks of Public Reviews</button>
+        <button data-action="serviceFeeAxe">🪓 Axe of Service Fee Added</button>
+        <button data-action="lostOpportunities">🔮 Crystal Ball of Lost Opportunities</button>
+        <button data-action="termsScroll">📜 Scroll of Terms & Conditions</button>
+        <button data-action="magneticRack">🧲 Magnetic Coupon Rack</button>
+        <button data-action="coldForgeSauna">🔥 Cold-Forge Sauna</button>
+        <button data-action="declinedArrow">🏹 Arrow of Your Card Was Declined</button>
+        <button data-action="unopenedEmailsBed">🛏️ Bed of Unreturned Emails</button>
+        <button data-action="buyersRemorseTrap">🪤 Mouse Trap of Buyer’s Remorse</button>
+        <button data-action="ratDungeon">🐀 Rat Dungeon</button>
+        <button data-action="shameBell">🔔 Shame Bell</button>
+        <button data-action="misprintedAdsBox">📦 Box of Misprinted Ads</button>
+        <button data-action="limitedOfferSword">⚔️ Sword of Limited Time Offer</button>
+        <button data-action="bankruptcyBroom">🧹 Broom of Bankruptcy</button>
+        <button data-action="debtCatapult">💸 Catapult of Debt</button>
+        <button data-action="forgottenPasswordsDungeon">🗝️ Dungeon of Forgotten Passwords</button>
+        <button data-action="cancelledSubsNeedle">🧵 Needle of Cancelled Subscriptions</button>
+        <button data-action="expiredWarrantyTrumpet">🎺 Trumpet of Warranty Expired</button>
+        <button data-action="failedKickstarterDrum">🥁 Drum of Failed Kickstarter</button>
+        <button data-action="negativeFeedbackSponge">🧽 Sponge of Negative Feedback</button>
+        <button data-action="loyaltyPit">🕳️ Bottomless Pit of Loyalty Cards</button>
+        <button data-action="priceDropGuillotine">☠️ Guillotine of Price Drop</button>
+        <button data-action="unsupportedRack">🔧 Rack of Unsupported File Format</button>
+        <button data-action="shippingAnchor">⚓ Anchor of Shipping Fees</button>
+        <button data-action="vatVampire">🧛 VAT-Tax Vampire</button>
+        <button data-action="dungeon404">💀 Medieval 404 Dungeon</button>
+        <button data-action="rejectedRose">🥀 Rose of Rejected Coupons</button>
       </div>
 
       <div class="log-window" id="logWindow"></div>
+      <div class="corner-label">Tip: When HOPE hits zero, maybe press nothing for a while.</div>
     </div>
   </div>
 
+  <script>
+    const state = {
+      ego: 100,
+      deals: 100,
+      hope: 100,
+      chairMode: false
+    };
 
-<script>
-  const state = {
-    ego: 100,
-    deals: 100,
-    hope: 100,
-    chairMode: false
-  };
+    const egoBar  = document.getElementById("egoBar");
+    const dealBar = document.getElementById("dealBar");
+    const hopeBar = document.getElementById("hopeBar");
+    const neoSprite = document.getElementById("neoSprite");
+    const neoStatus = document.getElementById("neoStatus");
+    const logWindow = document.getElementById("logWindow");
 
-  const egoBar  = document.getElementById("egoBar");
-  const dealBar = document.getElementById("dealBar");
-  const hopeBar = document.getElementById("hopeBar");
-  const neoSprite = document.getElementById("neoSprite");
-  const neoStatus = document.getElementById("neoStatus");
-  const logWindow = document.getElementById("logWindow");
-
-  function log(text, type="system") {
-    const div = document.createElement("div");
-    div.className = "log-line " + type;
-    div.textContent = text;
-    logWindow.appendChild(div);
-    logWindow.scrollTop = logWindow.scrollHeight;
-  }
-
-  function setStatus(t) { neoStatus.textContent = t; }
-
-  function applyAction(action) {
-    switch (action) {
-
-      /* NEW: POTATO BUTTON */
-      case "potato":
-        setStatus("dead");
-        log("You brutaly murdered Spamtong", "player");
-        log("SPAMTON can't do anything because he is dead.", "neo");
-        break;
-
-      /* NEW: CHAIR MODE */
-      case "chairMode":
-        if (!state.chairMode) {
-          state.chairMode = true;
-          neoSprite.src = "spamtonwheelchair.png";
-          setStatus("I CAN'T DO [[anything]]!!!");
-          log("You broke Spamton's leg.", "player");
-          log("SPAMTON NEO: I CAN'T DO [[anything]]!!!", "neo");
-        }
-        break;
-
-      default:
-        // Old medieval torture buttons handled here if needed
-        break;
+    function clamp(v) {
+      return Math.max(0, Math.min(100, v));
     }
-  }
 
-  document.querySelectorAll("button[data-action]").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      applyAction(btn.dataset.action);
+    function updateBars() {
+      egoBar.style.width  = state.ego  + "%";
+      dealBar.style.width = state.deals + "%";
+      hopeBar.style.width = state.hope + "%";
+
+      egoBar.classList.toggle("low", state.ego <= 30);
+      dealBar.classList.toggle("low", state.deals <= 30);
+      hopeBar.classList.toggle("low", state.hope <= 30);
+    }
+
+    function log(text, type = "system") {
+      const div = document.createElement("div");
+      div.className = "log-line " + type;
+      div.textContent = text;
+      logWindow.appendChild(div);
+      logWindow.scrollTop = logWindow.scrollHeight;
+    }
+
+    function setStatus(text) {
+      neoStatus.textContent = text;
+    }
+
+    function pulseGlitch() {
+      neoSprite.classList.remove("glitch");
+      void neoSprite.offsetWidth;
+      neoSprite.classList.add("glitch");
+    }
+
+    function pulseSpin() {
+      neoSprite.classList.remove("spin");
+      void neoSprite.offsetWidth;
+      neoSprite.classList.add("spin");
+    }
+
+    function drain(ego = 0, deals = 0, hope = 0) {
+      state.ego   = clamp(state.ego   + ego);
+      state.deals = clamp(state.deals + deals);
+      state.hope  = clamp(state.hope  + hope);
+      updateBars();
+      checkLimits();
+    }
+
+    function checkLimits() {
+      if (state.ego === 0 && state.deals === 0 && state.hope === 0) {
+        log("SYSTEM: All bars at zero. Torture simulation complete.", "system");
+        setStatus("[[KID... THE DEAL'S OVER.]]");
+      } else if (state.hope === 0) {
+        log("SYSTEM: HOPE depleted. Further actions may be unnecessarily cruel.", "system");
+      }
+    }
+
+    function applyAction(action) {
+      switch (action) {
+        /* EXTRA FUN BUTTONS */
+
+        case "chairMode":
+          if (!state.chairMode) {
+            state.chairMode = true;
+            neoSprite.src = "spamtonwheelchair.png";
+            setStatus("I CAN'T DO [[ANYTHING]]!!");
+            log("You broke Spamton's legs.", "player");
+            log("SPAMTON NEO: I CAN'T DO [[ANYTHING]]!!!", "neo");
+          }
+          break;
+
+          case "potato":
+          setStatus("dead");
+          log("You brutaly murdered Spamtong.", "player");
+          log("SPAMTON can't do anything he is dead.", "neo");
+          break;
+
+        /* 1–32 MEDIEVAL METHODS */
+
+        // 1
+        case "discountWheel":
+          drain(-5, -25, -5);
+          setStatus("The wheel creaks as his deals are stretched paper-thin.");
+          log("You strap him to the Discount Rack Stretching Wheel.", "player");
+          log("SPAMTON NEO: THE MARGIN!! NOT THE MARGIN!!!", "neo");
+          pulseSpin();
+          break;
+
+        // 2
+        case "onionTruth":
+          drain(-15, -5, -10);
+          setStatus("The onion fumes cut deeper than any blade.");
+          log("You peel the Onion of Truth in front of him.", "player");
+          log("SPAMTON NEO: OKAY OKAY I NEVER HAD A [[BIG SHOT]] PLAN!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 3
+        case "kromerBath":
+          drain(-10, -20, -10);
+          setStatus("Cold expired Kromer clings to him like regret.");
+          log("You dunk him in the Kromer Bath again and again.", "player");
+          log("SPAMTON NEO: WHY IS IT SO [[COLD]] IF IT'S [[MONEY]]?!", "neo");
+          pulseGlitch();
+          break;
+
+        // 4
+        case "ironMaidenPopups":
+          drain(-10, -25, -15);
+          setStatus("The Iron Maiden seals; pop-ups scream for attention.");
+          log("You lock him into the Iron Maiden of Blocked Pop-ups.", "player");
+          log("SPAMTON NEO: I CAN'T CLICK ANYTHING!! ALL THESE [[SPECIAL! BUY NOW!]] AND NO BUTTONS!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 5
+        case "saltDeal":
+          drain(-5, -10, 0);
+          setStatus("Salt falls on shredded contracts. He shrieks anyway.");
+          log("You sprinkle salt on his broken deal papers.", "player");
+          log("SPAMTON NEO: IT DOESN'T EVEN HURT WHY DOES IT FEEL SO [[PAINFUL]]?!", "neo");
+          break;
+
+        // 6
+        case "publicReviews":
+          drain(-20, -15, -10);
+          setStatus("The crowd pelts him with one-star feedback.");
+          log("You lock him in the Stocks of Public Reviews.", "player");
+          log("VILLAGERS: 1 STAR. 'ITEM ARRIVED BROKEN.' 'NO REFUND.'", "system");
+          log("SPAMTON NEO: KID THEY'RE REVIEWING MY [[SOUL]]!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 7
+        case "serviceFeeAxe":
+          drain(-10, -10, -5);
+          setStatus("Every word costs him another invisible fee.");
+          log("You swing the Axe of Service Fee Added.", "player");
+          log("SPAMTON NEO: WAIT WHAT DO YOU MEAN THERE'S A TALKING [[CONVENIENCE FEE]]?!", "neo");
+          break;
+
+        // 8
+        case "lostOpportunities":
+          drain(-15, -20, -10);
+          setStatus("The crystal ball shows every deal he almost had.");
+          log("You force him to gaze into the Crystal Ball of Lost Opportunities.", "player");
+          log("SPAMTON NEO: I COULD HAVE BEEN A [[HYPERLINK BLOCKED]] KING!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 9
+        case "termsScroll":
+          drain(-20, -10, -15);
+          setStatus("He reads. And reads. And reads. No scrollbar. No escape.");
+          log("You tie him up with the Scroll of Terms & Conditions.", "player");
+          log("SPAMTON NEO: I CAN'T EVEN FIND THE [[I AGREE]] BUTTON!!!", "neo");
+          break;
+
+        // 10
+        case "magneticRack":
+          drain(-5, -15, -5);
+          setStatus("Coupons and junk flyers cling to him like debt.");
+          log("You activate the Magnetic Coupon Rack.", "player");
+          log("SPAMTON NEO: WHY DO THESE ALL SAY 'EXPIRES YESTERDAY'?!", "neo");
+          pulseSpin();
+          break;
+
+        // 11
+        case "coldForgeSauna":
+          drain(-10, -5, -15);
+          setStatus("Heat outside, freezing inside. His confusion is total.");
+          log("You seal him inside the Cold-Forge Sauna.", "player");
+          log("SPAMTON NEO: WHY IS IT SO [[COLD]] IN THE HOT BOX?!!", "neo");
+          break;
+
+        // 12
+        case "declinedArrow":
+          drain(-15, -10, -5);
+          setStatus("The arrow hits his ego: CARD DECLINED.");
+          log("You fire the Arrow of 'Your Card Was Declined'.", "player");
+          log("SPAMTON NEO: BUT IT'S A [[PREMIUM PLATINUM BIGSHOT GOLD]]!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 13
+        case "unopenedEmailsBed":
+          drain(-20, -15, -10);
+          setStatus("He lies on a bed made of unopened newsletters.");
+          log("You force him onto the Bed of Unreturned Emails.", "player");
+          log("SPAMTON NEO: THEY DIDN'T EVEN OPEN THE [[SUBJECT LINE]]!!!", "neo");
+          break;
+
+        // 14
+        case "buyersRemorseTrap":
+          drain(-10, -20, -10);
+          setStatus("Every upsell ends in a snap of regret.");
+          log("You arm the Mouse Trap of Buyer’s Remorse.", "player");
+          log("SPAMTON NEO: THEY CLICKED 'REFUND' BEFORE THEY EVEN [[PURCHASED]]!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 15
+        case "ratDungeon":
+          drain(-10, -10, -15);
+          setStatus("Tiny businessmen rats swarm with terrible advice.");
+          log("You throw him into the Rat Dungeon.", "player");
+          log("RATS: 'LEVERAGE THE SYNERGY.' 'YOU NEED MORE EXPOSURE.'", "system");
+          log("SPAMTON NEO: EVEN I WOULDN'T SELL THIS KIND OF [[ADVICE]]!!!", "neo");
+          break;
+
+        // 16
+        case "shameBell":
+          drain(-20, -10, -15);
+          setStatus("The bell tolls. The crowd chants: NO BIG SHOT.");
+          log("You ring the Shame Bell over and over.", "player");
+          log("ALL: NO [[BIG SHOT]]! NO [[BIG SHOT]]!", "system");
+          log("SPAMTON NEO: STOP!!! I'M A MEDIUM-SIZED SHOT AT LEAST!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 17
+        case "misprintedAdsBox":
+          drain(-10, -15, -10);
+          setStatus("Misaligned fonts torment his marketing soul.");
+          log("You trap him in the Box of Misprinted Ads.", "player");
+          log("SPAMTON NEO: THE KERNING... THE KERNING!!!", "neo");
+          break;
+
+        // 18
+        case "limitedOfferSword":
+          drain(-10, -20, -10);
+          setStatus("The sword crackles with constantly expiring offers.");
+          log("You wield the Sword of Limited Time Offer.", "player");
+          log("SPAMTON NEO: LIMITED?? HOW LONG?? FIVE MINUTES??? FIVE [[SECONDS]]???", "neo");
+          pulseSpin();
+          break;
+
+        // 19
+        case "bankruptcyBroom":
+          drain(-15, -25, -10);
+          setStatus("Her broom sweeps away every last kromer pile.");
+          log("You summon the witch with the Broom of Bankruptcy.", "player");
+          log("SPAMTON NEO: SHE CLEANED OUT MY [[ASSETS]]!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 20
+        case "debtCatapult":
+          drain(-10, -20, -15);
+          setStatus("He flies straight into overdue bills and final notices.");
+          log("You fire the Catapult of Debt.", "player");
+          log("SPAMTON NEO: I'M BEING LAUNCHED INTO MY [[CREDIT SCORE]]!!!", "neo");
+          pulseSpin();
+          break;
+
+        // 21
+        case "forgottenPasswordsDungeon":
+          drain(-15, -10, -20);
+          setStatus("Every lock demands a password he forgot years ago.");
+          log("You seal him in the Dungeon of Forgotten Passwords.", "player");
+          log("SPAMTON NEO: WAS IT 'BIGSHOT123' OR 'BIGSHOT1234'??", "neo");
+          break;
+
+        // 22
+        case "cancelledSubsNeedle":
+          drain(-10, -25, -10);
+          setStatus("Each poke deletes another imaginary subscriber.");
+          log("You jab his inventory with the Needle of Cancelled Subscriptions.", "player");
+          log("SPAMTON NEO: THEY CAN'T ALL HIT 'UNSUBSCRIBE' AT ONCE!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 23
+        case "expiredWarrantyTrumpet":
+          drain(-10, -10, -5);
+          setStatus("The trumpet blares: WARRANTY EXPIRED.");
+          log("You blast the Trumpet of Warranty Expired.", "player");
+          log("SPAMTON NEO: BUT IT BROKE ONE DAY AFTER THE [[RETURN WINDOW]]!!!", "neo");
+          break;
+
+        // 24
+        case "failedKickstarterDrum":
+          drain(-15, -20, -10);
+          setStatus("The drums thunder: NO FUNDING.");
+          log("You pound the Drum of Failed Kickstarter.", "player");
+          log("SPAMTON NEO: WHERE DID ALL THE [[BACKERS]] GO?!", "neo");
+          pulseGlitch();
+          break;
+
+        // 25
+        case "negativeFeedbackSponge":
+          drain(-20, -10, -15);
+          setStatus("The sponge soaks up every last compliment.");
+          log("You squeeze the Sponge of Negative Feedback over his head.", "player");
+          log("SPAMTON NEO: I'M DRIPPING WITH NOTHING BUT 'COULD BE BETTER'!!!", "neo");
+          break;
+
+        // 26
+        case "loyaltyPit":
+          drain(-10, -20, -25);
+          setStatus("He falls past loyalty cards forever stuck at 9/10.");
+          log("You drop him into the Bottomless Pit of Loyalty Cards.", "player");
+          log("SPAMTON NEO: JUST ONE MORE STAMP!!! JUST ONE MORE---!!", "neo");
+          pulseSpin();
+          break;
+
+        // 27
+        case "priceDropGuillotine":
+          drain(-20, -30, -10);
+          setStatus("Every drop slashes his price and his pride.");
+          log("You trigger the Guillotine of Price Drop.", "player");
+          log("SPAMTON NEO: NOT THE [[DISCOUNT BIN]]!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 28
+        case "unsupportedRack":
+          drain(-15, -15, -10);
+          setStatus("His sprite is stretched into an unsupported aspect ratio.");
+          log("You strap his code to the Rack of Unsupported File Format.", "player");
+          log("SPAMTON NEO: I LOOK LIKE A CORRUPTED [[JPEG]]!!!", "neo");
+          break;
+
+        // 29
+        case "shippingAnchor":
+          drain(-10, -25, -10);
+          setStatus("Shipping fees drag all his offers straight to the bottom.");
+          log("You chain him to the Anchor of Shipping Fees.", "player");
+          log("SPAMTON NEO: BUT IT SAID 'FREE SHIPPING OVER 9999 [[KROMER]]'!!!", "neo");
+          pulseGlitch();
+          break;
+
+        // 30
+        case "vatVampire":
+          drain(-10, -20, -15);
+          setStatus("The VAT-Tax Vampire drains a fixed percentage each bite.");
+          log("You unleash the VAT-Tax Vampire on his earnings.", "player");
+          log("SPAMTON NEO: WHY DOES THE GOVERNMENT GET MORE THAN THE [[BIG SHOT]]?!", "neo");
+          break;
+
+        // 31
+        case "dungeon404":
+          drain(-15, -15, -20);
+          setStatus("Every door returns: ERROR 404 – BIG SHOT NOT FOUND.");
+          log("You send him into the Medieval 404 Dungeon.", "player");
+          log("SPAMTON NEO: WHERE'S THE [[HOME PAGE]]???", "neo");
+          pulseGlitch();
+          break;
+
+        // 32
+        case "rejectedRose":
+          drain(-10, -15, -15);
+          setStatus("Each fallen petal is a coupon marked VOID.");
+          log("You pluck the Rose of Rejected Coupons petal by petal.", "player");
+          log("SPAMTON NEO: SHE LOVES ME... SHE LOVES ME NOT... SHE LOVES THE [[COMPETITOR]]!!!", "neo");
+          break;
+      }
+    }
+
+    document.querySelectorAll("button[data-action]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const action = btn.getAttribute("data-action");
+        applyAction(action);
+      });
     });
-  });
 
-</script>
-
+    // Init
+    updateBars();
+    log("SYSTEM: Medieval torture protocol online. 32 methods + extras loaded.", "system");
+  </script>
 </body>
 </html>
