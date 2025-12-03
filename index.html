@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Spamton NEO Medieval Torture</title>
+  <title>Spamton  Medieval Torture</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -82,7 +82,7 @@
       overflow: hidden;
     }
 
-    .neo-stage {
+    .-stage {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -91,13 +91,13 @@
       gap: 8px;
     }
 
-    .neo-name {
+    .-name {
       font-size: 1.1rem;
       letter-spacing: 0.15em;
       margin-bottom: 8px;
     }
 
-    .neo-healthbars {
+    .-healthbars {
       width: 100%;
       gap: 6px;
       display: flex;
@@ -136,7 +136,7 @@
       background: linear-gradient(90deg, #ff0000, #ff8800);
     }
 
-    .neo-sprite-wrap {
+    .-sprite-wrap {
       flex: 1;
       display: flex;
       align-items: center;
@@ -145,18 +145,18 @@
       position: relative;
     }
 
-    .neo-sprite {
+    .-sprite {
       width: min(280px, 80%);
       image-rendering: pixelated;
       filter: drop-shadow(0 0 10px #fff);
       transition: transform 0.1s, filter 0.2s;
     }
 
-    .neo-sprite.glitch {
+    .-sprite.glitch {
       animation: glitch 0.16s steps(2) 0s 4;
     }
 
-    .neo-sprite.spin {
+    .-sprite.spin {
       animation: spin 0.9s ease-out 1;
     }
 
@@ -175,7 +175,7 @@
       100% { transform: rotate(360deg) scale(1); }
     }
 
-    .neo-status {
+    .-status {
       font-size: 0.9rem;
       border-top: 1px solid var(--border);
       width: 100%;
@@ -259,7 +259,7 @@
     }
 
     .log-line.player { color: var(--accent); }
-    .log-line.neo    { color: var(--accent2); }
+    .log-line.    { color: var(--accent2); }
     .log-line.system { color: #aaa; }
 
     .corner-label {
@@ -278,10 +278,10 @@
       <h1>SPAMTON TORTURE SIMULATOR</h1>
       <div class="subtitle">Lethal.</div>
 
-      <div class="neo-stage">
-        <div class="neo-name">[[HYPERLINK BLOCKED]] NEO</div>
+      <div class="-stage">
+        <div class="-name">[[HYPERLINK BLOCKED]] </div>
 
-        <div class="neo-healthbars">
+        <div class="-healthbars">
           <div class="bar-row">
             <div class="bar-label">EGO</div>
             <div class="bar"><div id="egoBar" class="bar-fill"></div></div>
@@ -296,12 +296,12 @@
           </div>
         </div>
 
-        <div class="neo-sprite-wrap">
+        <div class="-sprite-wrap">
           <!-- MAIN SPRITE = spamton.png -->
-          <img src="spamton.png" alt="Spamton" class="neo-sprite" id="neoSprite">
+          <img src="spamton.png" alt="Spamton" class="-sprite" id="Sprite">
         </div>
 
-        <div class="neo-status" id="neoStatus">
+        <div class="-status" id="Status">
           [[KID... WHAT KIND OF MEDIEVAL OPERATION IS THIS?!]]
         </div>
 
@@ -367,8 +367,8 @@
     const egoBar  = document.getElementById("egoBar");
     const dealBar = document.getElementById("dealBar");
     const hopeBar = document.getElementById("hopeBar");
-    const neoSprite = document.getElementById("neoSprite");
-    const neoStatus = document.getElementById("neoStatus");
+    const Sprite = document.getElementById("Sprite");
+    const Status = document.getElementById("Status");
     const logWindow = document.getElementById("logWindow");
 
     function clamp(v) {
@@ -394,19 +394,19 @@
     }
 
     function setStatus(text) {
-      neoStatus.textContent = text;
+      Status.textContent = text;
     }
 
     function pulseGlitch() {
-      neoSprite.classList.remove("glitch");
-      void neoSprite.offsetWidth;
-      neoSprite.classList.add("glitch");
+      Sprite.classList.remove("glitch");
+      void Sprite.offsetWidth;
+      Sprite.classList.add("glitch");
     }
 
     function pulseSpin() {
-      neoSprite.classList.remove("spin");
-      void neoSprite.offsetWidth;
-      neoSprite.classList.add("spin");
+      Sprite.classList.remove("spin");
+      void Sprite.offsetWidth;
+      Sprite.classList.add("spin");
     }
 
     function drain(ego = 0, deals = 0, hope = 0) {
@@ -433,21 +433,21 @@
         case "chairMode":
           if (!state.chairMode) {
             state.chairMode = true;
-            neoSprite.src = "spamtonwheelchair.png";
+            Sprite.src = "spamtonwheelchair.png";
             setStatus("I CAN'T DO [[ANYTHING]]!!");
             log("You broke Spamton's legs.", "player");
-            log("SPAMTON NEO: I CAN'T DO [[ANYTHING]]!!!", "neo");
+            log("SPAMTON: I CAN'T DO [[ANYTHING]]!!!", "");
           }
           break;
 
           case "potato":
   // Disappear forever
-  neoSprite.style.display = "none";
+  Sprite.style.display = "none";
   state.chairMode = true; // prevent any sprite changes later
 
   setStatus("...he's gone. Forever. Dead");
   log("You brutaly murdered Spamtong.", "player");
-  log("SPAMTON can't do anything he is dead.", "neo");
+  log("SPAMTON can't do anything he is dead.", "");
   log("SYSTEM: Spamton is gone permanently.", "system");
   break;
 
@@ -458,7 +458,7 @@
           drain(-5, -25, -5);
           setStatus("The wheel creaks as his deals are stretched paper-thin.");
           log("You strap him to the Discount Rack Stretching Wheel.", "player");
-          log("SPAMTON NEO: THE MARGIN!! NOT THE MARGIN!!!", "neo");
+          log("SPAMTON: THE MARGIN!! NOT THE MARGIN!!!", "");
           pulseSpin();
           break;
 
@@ -467,7 +467,7 @@
           drain(-15, -5, -10);
           setStatus("The onion fumes cut deeper than any blade.");
           log("You peel the Onion of Truth in front of him.", "player");
-          log("SPAMTON NEO: OKAY OKAY I NEVER HAD A [[BIG SHOT]] PLAN!!", "neo");
+          log("SPAMTON: OKAY OKAY I NEVER HAD A [[BIG SHOT]] PLAN!!", "");
           pulseGlitch();
           break;
 
@@ -476,7 +476,7 @@
           drain(-10, -20, -10);
           setStatus("Cold expired Kromer clings to him like regret.");
           log("You dunk him in the Kromer Bath again and again.", "player");
-          log("SPAMTON NEO: WHY IS IT SO [[COLD]] IF IT'S [[MONEY]]?!", "neo");
+          log("SPAMTON: WHY IS IT SO [[COLD]] IF IT'S [[MONEY]]?!", "");
           pulseGlitch();
           break;
 
@@ -485,7 +485,7 @@
           drain(-10, -25, -15);
           setStatus("The Iron Maiden seals; pop-ups scream for attention.");
           log("You lock him into the Iron Maiden of Blocked Pop-ups.", "player");
-          log("SPAMTON NEO: I CAN'T CLICK ANYTHING!! ALL THESE [[SPECIAL! BUY NOW!]] AND NO BUTTONS!!!", "neo");
+          log("SPAMTON: I CAN'T CLICK ANYTHING!! ALL THESE [[SPECIAL! BUY NOW!]] AND NO BUTTONS!!!", "");
           pulseGlitch();
           break;
 
@@ -494,7 +494,7 @@
           drain(-5, -10, 0);
           setStatus("Salt falls on shredded contracts. He shrieks anyway.");
           log("You sprinkle salt on his broken deal papers.", "player");
-          log("SPAMTON NEO: IT DOESN'T EVEN HURT WHY DOES IT FEEL SO [[PAINFUL]]?!", "neo");
+          log("SPAMTON: IT DOESN'T EVEN HURT WHY DOES IT FEEL SO [[PAINFUL]]?!", "");
           break;
 
         // 6
@@ -503,7 +503,7 @@
           setStatus("The crowd pelts him with one-star feedback.");
           log("You lock him in the Stocks of Public Reviews.", "player");
           log("VILLAGERS: 1 STAR. 'ITEM ARRIVED BROKEN.' 'NO REFUND.'", "system");
-          log("SPAMTON NEO: KID THEY'RE REVIEWING MY [[SOUL]]!!!", "neo");
+          log("SPAMTON: KID THEY'RE REVIEWING MY [[SOUL]]!!!", "");
           pulseGlitch();
           break;
 
@@ -512,7 +512,7 @@
           drain(-10, -10, -5);
           setStatus("Every word costs him another invisible fee.");
           log("You swing the Axe of Service Fee Added.", "player");
-          log("SPAMTON NEO: WAIT WHAT DO YOU MEAN THERE'S A TALKING [[CONVENIENCE FEE]]?!", "neo");
+          log("SPAMTON: WAIT WHAT DO YOU MEAN THERE'S A TALKING [[CONVENIENCE FEE]]?!", "");
           break;
 
         // 8
@@ -520,7 +520,7 @@
           drain(-15, -20, -10);
           setStatus("The crystal ball shows every deal he almost had.");
           log("You force him to gaze into the Crystal Ball of Lost Opportunities.", "player");
-          log("SPAMTON NEO: I COULD HAVE BEEN A [[HYPERLINK BLOCKED]] KING!!!", "neo");
+          log("SPAMTON: I COULD HAVE BEEN A [[HYPERLINK BLOCKED]] KING!!!", "");
           pulseGlitch();
           break;
 
@@ -529,7 +529,7 @@
           drain(-20, -10, -15);
           setStatus("He reads. And reads. And reads. No scrollbar. No escape.");
           log("You tie him up with the Scroll of Terms & Conditions.", "player");
-          log("SPAMTON NEO: I CAN'T EVEN FIND THE [[I AGREE]] BUTTON!!!", "neo");
+          log("SPAMTON: I CAN'T EVEN FIND THE [[I AGREE]] BUTTON!!!", "");
           break;
 
         // 10
@@ -537,7 +537,7 @@
           drain(-5, -15, -5);
           setStatus("Coupons and junk flyers cling to him like debt.");
           log("You activate the Magnetic Coupon Rack.", "player");
-          log("SPAMTON NEO: WHY DO THESE ALL SAY 'EXPIRES YESTERDAY'?!", "neo");
+          log("SPAMTON: WHY DO THESE ALL SAY 'EXPIRES YESTERDAY'?!", "");
           pulseSpin();
           break;
 
@@ -546,7 +546,7 @@
           drain(-10, -5, -15);
           setStatus("Heat outside, freezing inside. His confusion is total.");
           log("You seal him inside the Cold-Forge Sauna.", "player");
-          log("SPAMTON NEO: WHY IS IT SO [[COLD]] IN THE HOT BOX?!!", "neo");
+          log("SPAMTON: WHY IS IT SO [[COLD]] IN THE HOT BOX?!!", "");
           break;
 
         // 12
@@ -554,7 +554,7 @@
           drain(-15, -10, -5);
           setStatus("The arrow hits his ego: CARD DECLINED.");
           log("You fire the Arrow of 'Your Card Was Declined'.", "player");
-          log("SPAMTON NEO: BUT IT'S A [[PREMIUM PLATINUM BIGSHOT GOLD]]!!!", "neo");
+          log("SPAMTON: BUT IT'S A [[PREMIUM PLATINUM BIGSHOT GOLD]]!!!", "");
           pulseGlitch();
           break;
 
@@ -563,7 +563,7 @@
           drain(-20, -15, -10);
           setStatus("He lies on a bed made of unopened newsletters.");
           log("You force him onto the Bed of Unreturned Emails.", "player");
-          log("SPAMTON NEO: THEY DIDN'T EVEN OPEN THE [[SUBJECT LINE]]!!!", "neo");
+          log("SPAMTON: THEY DIDN'T EVEN OPEN THE [[SUBJECT LINE]]!!!", "");
           break;
 
         // 14
@@ -571,7 +571,7 @@
           drain(-10, -20, -10);
           setStatus("Every upsell ends in a snap of regret.");
           log("You arm the Mouse Trap of Buyer’s Remorse.", "player");
-          log("SPAMTON NEO: THEY CLICKED 'REFUND' BEFORE THEY EVEN [[PURCHASED]]!!!", "neo");
+          log("SPAMTON: THEY CLICKED 'REFUND' BEFORE THEY EVEN [[PURCHASED]]!!!", "");
           pulseGlitch();
           break;
 
@@ -581,7 +581,7 @@
           setStatus("Tiny businessmen rats swarm with terrible advice.");
           log("You throw him into the Rat Dungeon.", "player");
           log("RATS: 'LEVERAGE THE SYNERGY.' 'YOU NEED MORE EXPOSURE.'", "system");
-          log("SPAMTON NEO: EVEN I WOULDN'T SELL THIS KIND OF [[ADVICE]]!!!", "neo");
+          log("SPAMTON: EVEN I WOULDN'T SELL THIS KIND OF [[ADVICE]]!!!", "");
           break;
 
         // 16
@@ -590,7 +590,7 @@
           setStatus("The bell tolls. The crowd chants: NO BIG SHOT.");
           log("You ring the Shame Bell over and over.", "player");
           log("ALL: NO [[BIG SHOT]]! NO [[BIG SHOT]]!", "system");
-          log("SPAMTON NEO: STOP!!! I'M A MEDIUM-SIZED SHOT AT LEAST!!!", "neo");
+          log("SPAMTON: STOP!!! I'M A MEDIUM-SIZED SHOT AT LEAST!!!", "");
           pulseGlitch();
           break;
 
@@ -599,7 +599,7 @@
           drain(-10, -15, -10);
           setStatus("Misaligned fonts torment his marketing soul.");
           log("You trap him in the Box of Misprinted Ads.", "player");
-          log("SPAMTON NEO: THE KERNING... THE KERNING!!!", "neo");
+          log("SPAMTON: THE KERNING... THE KERNING!!!", "");
           break;
 
         // 18
@@ -607,7 +607,7 @@
           drain(-10, -20, -10);
           setStatus("The sword crackles with constantly expiring offers.");
           log("You wield the Sword of Limited Time Offer.", "player");
-          log("SPAMTON NEO: LIMITED?? HOW LONG?? FIVE MINUTES??? FIVE [[SECONDS]]???", "neo");
+          log("SPAMTON: LIMITED?? HOW LONG?? FIVE MINUTES??? FIVE [[SECONDS]]???", "");
           pulseSpin();
           break;
 
@@ -616,7 +616,7 @@
           drain(-15, -25, -10);
           setStatus("Her broom sweeps away every last kromer pile.");
           log("You summon the witch with the Broom of Bankruptcy.", "player");
-          log("SPAMTON NEO: SHE CLEANED OUT MY [[ASSETS]]!!!", "neo");
+          log("SPAMTON: SHE CLEANED OUT MY [[ASSETS]]!!!", "");
           pulseGlitch();
           break;
 
@@ -625,7 +625,7 @@
           drain(-10, -20, -15);
           setStatus("He flies straight into overdue bills and final notices.");
           log("You fire the Catapult of Debt.", "player");
-          log("SPAMTON NEO: I'M BEING LAUNCHED INTO MY [[CREDIT SCORE]]!!!", "neo");
+          log("SPAMTON: I'M BEING LAUNCHED INTO MY [[CREDIT SCORE]]!!!", "");
           pulseSpin();
           break;
 
@@ -634,7 +634,7 @@
           drain(-15, -10, -20);
           setStatus("Every lock demands a password he forgot years ago.");
           log("You seal him in the Dungeon of Forgotten Passwords.", "player");
-          log("SPAMTON NEO: WAS IT 'BIGSHOT123' OR 'BIGSHOT1234'??", "neo");
+          log("SPAMTON: WAS IT 'BIGSHOT123' OR 'BIGSHOT1234'??", "");
           break;
 
         // 22
@@ -642,7 +642,7 @@
           drain(-10, -25, -10);
           setStatus("Each poke deletes another imaginary subscriber.");
           log("You jab his inventory with the Needle of Cancelled Subscriptions.", "player");
-          log("SPAMTON NEO: THEY CAN'T ALL HIT 'UNSUBSCRIBE' AT ONCE!!!", "neo");
+          log("SPAMTON: THEY CAN'T ALL HIT 'UNSUBSCRIBE' AT ONCE!!!", "");
           pulseGlitch();
           break;
 
@@ -651,7 +651,7 @@
           drain(-10, -10, -5);
           setStatus("The trumpet blares: WARRANTY EXPIRED.");
           log("You blast the Trumpet of Warranty Expired.", "player");
-          log("SPAMTON NEO: BUT IT BROKE ONE DAY AFTER THE [[RETURN WINDOW]]!!!", "neo");
+          log("SPAMTON: BUT IT BROKE ONE DAY AFTER THE [[RETURN WINDOW]]!!!", "");
           break;
 
         // 24
@@ -659,7 +659,7 @@
           drain(-15, -20, -10);
           setStatus("The drums thunder: NO FUNDING.");
           log("You pound the Drum of Failed Kickstarter.", "player");
-          log("SPAMTON NEO: WHERE DID ALL THE [[BACKERS]] GO?!", "neo");
+          log("SPAMTON: WHERE DID ALL THE [[BACKERS]] GO?!", "");
           pulseGlitch();
           break;
 
@@ -668,7 +668,7 @@
           drain(-20, -10, -15);
           setStatus("The sponge soaks up every last compliment.");
           log("You squeeze the Sponge of Negative Feedback over his head.", "player");
-          log("SPAMTON NEO: I'M DRIPPING WITH NOTHING BUT 'COULD BE BETTER'!!!", "neo");
+          log("SPAMTON: I'M DRIPPING WITH NOTHING BUT 'COULD BE BETTER'!!!", "");
           break;
 
         // 26
@@ -676,7 +676,7 @@
           drain(-10, -20, -25);
           setStatus("He falls past loyalty cards forever stuck at 9/10.");
           log("You drop him into the Bottomless Pit of Loyalty Cards.", "player");
-          log("SPAMTON NEO: JUST ONE MORE STAMP!!! JUST ONE MORE---!!", "neo");
+          log("SPAMTON: JUST ONE MORE STAMP!!! JUST ONE MORE---!!", "");
           pulseSpin();
           break;
 
@@ -685,7 +685,7 @@
           drain(-20, -30, -10);
           setStatus("Every drop slashes his price and his pride.");
           log("You trigger the Guillotine of Price Drop.", "player");
-          log("SPAMTON NEO: NOT THE [[DISCOUNT BIN]]!!!", "neo");
+          log("SPAMTON: NOT THE [[DISCOUNT BIN]]!!!", "");
           pulseGlitch();
           break;
 
@@ -694,7 +694,7 @@
           drain(-15, -15, -10);
           setStatus("His sprite is stretched into an unsupported aspect ratio.");
           log("You strap his code to the Rack of Unsupported File Format.", "player");
-          log("SPAMTON NEO: I LOOK LIKE A CORRUPTED [[JPEG]]!!!", "neo");
+          log("SPAMTON: I LOOK LIKE A CORRUPTED [[JPEG]]!!!", "");
           break;
 
         // 29
@@ -702,7 +702,7 @@
           drain(-10, -25, -10);
           setStatus("Shipping fees drag all his offers straight to the bottom.");
           log("You chain him to the Anchor of Shipping Fees.", "player");
-          log("SPAMTON NEO: BUT IT SAID 'FREE SHIPPING OVER 9999 [[KROMER]]'!!!", "neo");
+          log("SPAMTON: BUT IT SAID 'FREE SHIPPING OVER 9999 [[KROMER]]'!!!", "");
           pulseGlitch();
           break;
 
@@ -711,7 +711,7 @@
           drain(-10, -20, -15);
           setStatus("The VAT-Tax Vampire drains a fixed percentage each bite.");
           log("You unleash the VAT-Tax Vampire on his earnings.", "player");
-          log("SPAMTON NEO: WHY DOES THE GOVERNMENT GET MORE THAN THE [[BIG SHOT]]?!", "neo");
+          log("SPAMTON: WHY DOES THE GOVERNMENT GET MORE THAN THE [[BIG SHOT]]?!", "");
           break;
 
         // 31
@@ -719,7 +719,7 @@
           drain(-15, -15, -20);
           setStatus("Every door returns: ERROR 404 – BIG SHOT NOT FOUND.");
           log("You send him into the Medieval 404 Dungeon.", "player");
-          log("SPAMTON NEO: WHERE'S THE [[HOME PAGE]]???", "neo");
+          log("SPAMTON: WHERE'S THE [[HOME PAGE]]???", "");
           pulseGlitch();
           break;
 
@@ -728,7 +728,15 @@
           drain(-10, -15, -15);
           setStatus("Each fallen petal is a coupon marked VOID.");
           log("You pluck the Rose of Rejected Coupons petal by petal.", "player");
-          log("SPAMTON NEO: SHE LOVES ME... SHE LOVES ME NOT... SHE LOVES THE [[COMPETITOR]]!!!", "neo");
+          log("SPAMTON: SHE LOVES ME... SHE LOVES ME NOT... SHE LOVES THE [[COMPETITOR]]!!!", "");
+          break;
+
+          // 33
+          case "taze":
+          drain(-10, -15, -15);
+          setStatus("Spamton is in shock (literaly).");
+          log("You taze Spamton with your handy tazer.", "player");
+          log("SPAMTON: WHY WOULD YOU [[taze]] SUCH AN [[big shot]]", "");
           break;
       }
     }
