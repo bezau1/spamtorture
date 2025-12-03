@@ -348,6 +348,7 @@
         <button data-action="dungeon404">💀 Medieval 404 Dungeon</button>
         <button data-action="rejectedRose">🥀 Rose of Rejected Coupons</button>
         <button data-action="taze">🔌 Taze</button>
+        <button data-action="electricchair">🪑 Electric Chair</button>
         <button data-action="chairMode">🧑‍🦼 Break leg</button>
         <button data-action="potato">Kill</button>
       </div>
@@ -739,6 +740,18 @@
           log("You taze Spamton with your handy tazer.", "player");
           log("SPAMTON: WHY WOULD YOU [[taze]] SUCH AN [[big shot]]", "");
           pulseGlitch();
+          break;
+
+          // 34
+          case "electricchair":
+          if (!state.electricchair) {
+            state.electricchair = true;
+            Sprite.src = "spamtonelectricchair.png";
+            setStatus("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!");
+            log("You electrocuted SPAMTON.", "player");
+            log("SPAMTON: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA DONT ELECTROCUTE A INNOCENT [[big shot]]!!!", "");
+            pulseGlitch();
+          }
           break;
       }
     }
