@@ -348,6 +348,7 @@
         <button data-action="dungeon404">💀 Medieval 404 Dungeon</button>
         <button data-action="rejectedRose">🥀 Rose of Rejected Coupons</button>
         <button data-action="taze">🔌 Taze</button>
+        <button data-action="electricFlySwatter">🪰 Electric Fly Swatter</button>
         <button data-action="electricchair">🪑 Electric Chair</button>
         <button data-action="chairMode">🧑‍🦼 Break leg</button>
         <button data-action="potato">Kill</button>
@@ -750,6 +751,18 @@
             setStatus("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!");
             log("You electrocuted SPAMTON.", "player");
             log("SPAMTON: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA DONT ELECTROCUTE A INNOCENT [[big shot]]!!!", "");
+            pulseGlitch();
+          }
+          break;
+
+          // 35
+          case "electricFlySwatter":
+          if (!state.electricchair) {
+            state.electricchair = true;
+            Sprite.src = "spamtonelectricflyswatter.png";
+            setStatus("bzzzzzzzzzzzzzzzzzz!!");
+            log("You swatted SPAMTON with an electric fly swatter.", "player");
+            log("SPAMTON: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA DONT [[electricly swat]] A INNOCENT [[big shot]] IM NOT A [[fly]]!!!", "");
             pulseGlitch();
           }
           break;
